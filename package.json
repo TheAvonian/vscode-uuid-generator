@@ -10,14 +10,19 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vscode-uuid-generator.helloWorld"
+		"onCommand:vscode-uuid-generator.insertDefault",
+		"onCommand:vscode-uuid-generator.copyDefault"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "vscode-uuid-generator.helloWorld",
-				"title": "Hello World"
+				"command": "vscode-uuid-generator.insertDefault",
+				"title": "Insert new UUID"
+			},
+			{
+				"command": "vscode-uuid-generator.copyDefault",
+				"title": "Copy new UUID to clipboard"
 			}
 		]
 	},
