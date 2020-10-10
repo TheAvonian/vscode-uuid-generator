@@ -2,13 +2,13 @@
 
 This extension can generate Universal Unique Identifiers (UUID) and either add them to the file you are editing, or place them on the clipboard.
 
+One useful case for this extension is to create UUIDs for configuring new profiles for [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/).
+
 ## Features
 
-This extension supports the following functions:
-* Generate a UUID and insert it into the document currently being edited
-* Generate a UUID and copy it to the clipboard
+This extension supports creating a new, valid UUID and then either adding it diretly to the currently active editor, or placing it on the clipboard.
 
-Use by opening the command palette and selecting one of the following:
+The easiest way to run the commands is from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac), typing `UUID` and selecting the desired function.
 * Insert new UUID
 * Copy new UUID to the clipboard
 
