@@ -1,65 +1,50 @@
-# vscode-uuid-generator README
+# UUID Generator
 
-This is the README for your extension "vscode-uuid-generator". After writing up a brief description, we recommend including the following sections.
+This extension can generate Universal Unique Identifiers (UUID) and either add them to the file you are editing, or place them on the clipboard.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension supports the following functions:
+* Generate a UUID and insert it into the document currently being edited
+* Generate a UUID and copy it to the clipboard
 
-For example if there is an image subfolder under your extension project workspace:
+Use by opening the command palette and selecting one of the following:
+* Insert new UUID
+* Copy new UUID to the clipboard
 
-\!\[feature X\]\(images/feature-x.png\)
+### UUID type
+The generated UUIDs are type 4, variation 1, which means unique based on random numbers. This means the UUIDs are statistically likely to be unique, but it is not impossibe for there to be duplication. The random numbers generated are modified by a timestamp to reduce the reliance on the random number generation itself to provide a non-repeatable sequence.
+ 
+### Intentions
+The currently generated UUID is uppercase (i.e. for the hex digits A-F) and not surrounded by any kind of bracket or other decoration.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+The plan is to introduce some settings to allow the configuration of a preferred format for the generated UUID
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+* Any generated UUIDs shall conform to the standard
+* A function will exist to place a newly generated UUID directly into the file currently being edited
+* A function will exist to place a newly generated UUID onto the clipboard
+    * When a UUID is placed on the clipboard, the user shall be notified
+* It shall be possible to determine the output format of UUID to contain uppercase or lowercase hex digits 
+* It shall be possible to determine whether the generated UUIDs are automatically surrounded with brackets for some typical uses
+* It may be possible to configure a default format for UUID for ease of access when used regularly
+* It may be possible to generate a version 1 UUID (This is a low priority requirement)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+TBD
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+* Currently the generated UUIDs are uppercase with no surrounding brackets
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+This extension is in development, but each release should be usable, Details are listed below:
 
-### 1.0.0
+### 0.0.1
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of the UUID Generator (vscode-uuid-generator). This offers a couple of simple functions only:
+* Copy new UUID to clipboard
+* Insert new UUID into the currently active text editor

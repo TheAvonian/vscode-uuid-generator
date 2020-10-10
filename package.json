@@ -1,8 +1,13 @@
 {
 	"name": "vscode-uuid-generator",
-	"displayName": "vscode-uuid-generator",
+	"displayName": "UUID Generator",
 	"description": "Generate UUIDs to insert into the current file, or onto the clipboard",
+	"keywords": [
+		"uuid",
+		"guid"
+	],
 	"version": "0.0.1",
+	"publisher": "motivesoft",
 	"engines": {
 		"vscode": "^1.50.0"
 	},
