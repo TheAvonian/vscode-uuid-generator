@@ -1,12 +1,12 @@
 # UUID Generator
 
-This extension can generate Universal Unique Identifiers (UUID) and either add them to the file you are editing, or place them on the clipboard.
+This extension can generate Universal Unique Identifier (UUID) values and either insert them into the file you are editing, or place them on the clipboard.
 
 One useful case for this extension is to create UUIDs for configuring new profiles for [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/).
 
 ## Features
 
-This extension supports creating a new, valid UUID and then either adding it diretly to the currently active editor, or placing it on the clipboard.
+This extension supports creating a new version 4 UUID and then either adding it to the current location in the active editor, or placing it on the clipboard.
 
 The easiest way to run the commands is from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac), typing `UUID` and selecting the desired function.
 * Insert new UUID
@@ -14,7 +14,9 @@ The easiest way to run the commands is from the command palette by pressing (`Ct
 
 ### UUID type
 The generated UUIDs are type 4, variation 1, which means unique based on random numbers. This means the UUIDs are statistically likely to be unique, but it is not impossibe for there to be duplication. The random numbers generated are modified by a timestamp to reduce the reliance on the random number generation itself to provide a non-repeatable sequence.
- 
+
+See section 4.4 of [RFC4122](https://www.ietf.org/rfc/rfc4122.txt) for details about UUID type 4.
+
 ### Intentions
 The currently generated UUID is uppercase (i.e. for the hex digits A-F) and not surrounded by any kind of bracket or other decoration.
 
@@ -35,7 +37,7 @@ The plan is to introduce some settings to allow the configuration of a preferred
 
 TBD
 
-## Known Issues
+## Known Limitations and Issues
 
 * Currently the generated UUIDs are uppercase with no surrounding brackets
 

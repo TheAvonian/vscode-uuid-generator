@@ -12,6 +12,7 @@
 		"type": "git",
 		"url": "https://github.com/Motivesoft/vscode-uuid-generator.git"
 	},
+	"homepage": "https://github.com/Motivesoft/vscode-uuid-generator/blob/master/README.md",
 	"engines": {
 		"vscode": "^1.50.0"
 	},

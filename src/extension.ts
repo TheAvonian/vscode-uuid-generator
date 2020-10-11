@@ -15,7 +15,14 @@ export function activate(context: vscode.ExtensionContext) {
 	// The commandId parameter must match the command field in package.json
 	let insertDefault = vscode.commands.registerCommand('vscode-uuid-generator.insertDefault', () => {
 		// Generate the UUID and add insert it at the current edit point
-		insertText( x => makeGuid() );
+		let editor = vscode.window.activeTextEditor;
+        if (editor) {
+			editor.edit(edit => {
+				if (editor) {
+					editor.selections.forEach(v => edit.replace(v, makeGuid()))
+				}
+			} );
+		}
 	});
 
 	context.subscriptions.push(insertDefault);
@@ -34,9 +41,9 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(copyDefault);
 }
 
-// this method is called when your extension is deactivated
-export function deactivate() {}
-
+export function deactivate() {
+	// Do nothing - called when the extension is deactivated
+}
 
 function makeGuid() {
 	var result: string;
@@ -98,29 +105,4 @@ function makeGuid() {
 
 	// Return the result as uppercase
 	return result.toUpperCase();
-}
-
-function insertText(getText: (i:number) => string, i: number = 0, wasEmpty: boolean = false) {
-
-    let activeEditor = vscode.window.activeTextEditor;
-	if (!activeEditor) { 
-		vscode.window.showErrorMessage('Could not insert UUID. There is no active editor.');
-		return; 
-	}
-
-    let sels = activeEditor.selections;
-
-    if (i > 0 && wasEmpty) {
-        sels[i - 1] = new vscode.Selection(sels[i - 1].end, sels[i - 1].end);
-        activeEditor.selections = sels; // required or the selection updates will be ignored!
-    }
-
-    if (i < 0 || i >= sels.length) { 
-		return; 
-	}
-
-    let isEmpty = sels[i].isEmpty;
-    activeEditor.edit(edit => edit.replace(sels[i], getText(i))).then(x => {
-        insertText(getText, i + 1, isEmpty);
-    });
 }
