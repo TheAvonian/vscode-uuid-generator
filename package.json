@@ -7,7 +7,12 @@
 		"guid"
 	],
 	"version": "0.0.1",
+	"icon": "images/icon.png",
 	"publisher": "motivesoft",
+	"author": {
+		"name":"ianabrown",
+		"url": "https://github.com/ianabrown"
+	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Motivesoft/vscode-uuid-generator.git"
