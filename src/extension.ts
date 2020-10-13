@@ -103,6 +103,6 @@ function makeGuid() {
 		result = result + i;
 	}
 
-	// Return the result as uppercase
-	return result.toUpperCase();
+	// Return the result as lowercase
+	return result.toLowerCase();
 }

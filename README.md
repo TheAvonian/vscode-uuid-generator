@@ -18,7 +18,7 @@ The generated UUIDs are type 4, variation 1, which means unique based on random 
 See section 4.4 of [RFC4122](https://www.ietf.org/rfc/rfc4122.txt) for details about UUID type 4.
 
 ### Intentions
-The currently generated UUID is uppercase (i.e. for the hex digits A-F) and not surrounded by any kind of bracket or other decoration.
+The currently generated UUID is lowercase (i.e. for the hex digits A-F) and not surrounded by any kind of bracket or other decoration.
 
 The plan is to introduce some settings to allow the configuration of a preferred format for the generated UUID
 
@@ -39,7 +39,7 @@ TBD
 
 ## Known Limitations and Issues
 
-* Currently the generated UUIDs are uppercase with no surrounding brackets
+* Currently the generated UUIDs are lowercase with no surrounding brackets
 
 ## Release Notes
 
