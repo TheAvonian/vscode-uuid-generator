@@ -24,14 +24,7 @@ The plan is to introduce some settings to allow the configuration of a preferred
 
 ## Requirements
 
-* Any generated UUIDs shall conform to the standard
-* A function will exist to place a newly generated UUID directly into the file currently being edited
-* A function will exist to place a newly generated UUID onto the clipboard
-    * When a UUID is placed on the clipboard, the user shall be notified
-* It shall be possible to determine the output format of UUID to contain uppercase or lowercase hex digits 
-* It shall be possible to determine whether the generated UUIDs are automatically surrounded with brackets for some typical uses
-* It may be possible to configure a default format for UUID for ease of access when used regularly
-* It may be possible to generate a version 1 UUID (This is a low priority requirement)
+* Requires VS Code v1.50+. This will be reviewed
 
 ## Extension Settings
 
