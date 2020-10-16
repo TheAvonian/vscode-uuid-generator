@@ -7,6 +7,7 @@
 		"guid"
 	],
 	"version": "0.0.1",
+	"license": "See license in LICENSE.txt file",
 	"icon": "images/icon.png",
 	"publisher": "motivesoft",
 	"author": {
