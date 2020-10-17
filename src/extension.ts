@@ -15,7 +15,7 @@ export function activate(context: vscode.ExtensionContext) {
 			editor.edit( edit => {
 				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeGuid() ) ) )
 			} ).then( success => {
-				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.select");
+				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.textSelection");
 				if( success && editor && !select ) {
 					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
 				}
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 			editor.edit( edit => {
 				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeNilGuid() ) ) )
 			} ).then( success => {
-				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.select");
+				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.textSelection");
 				if( success && editor && !select ) {
 					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
 				}
@@ -156,7 +156,7 @@ function makeGuid() {
 	}
 
 	// Return the result as upper/lowercase as configured
-	var uppercase = vscode.workspace.getConfiguration().get("vscode-uuid-generator.uppercase");
+	var uppercase = vscode.workspace.getConfiguration().get("vscode-uuid-generator.uppercaseDigits");
 
 	return uppercase ? result.toUpperCase() : result.toLowerCase();
 }

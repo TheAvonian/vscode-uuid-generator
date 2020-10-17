@@ -50,15 +50,15 @@
 			{
 				"title": "UUID Generator",
 				"properties": {
-					"vscode-uuid-generator.uppercase" : {
+					"vscode-uuid-generator.uppercaseDigits" : {
 						"type": "boolean",
 						"default": false,
 						"description": "Use uppercase hex digits in UUID. Otherwise digits will be lowercase"
 					},
-					"vscode-uuid-generator.select" : {
+					"vscode-uuid-generator.textSelection" : {
 						"type": "boolean",
 						"default": true,
-						"description": "Whether the inserted value should be left in a selected state"
+						"description": "Whether the inserted UUID text should be left in a selected state"
 					},
 					"vscode-uuid-generator.decorationStyle" : {
 						"type": "string",
