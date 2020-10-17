@@ -57,7 +57,7 @@
 					},
 					"vscode-uuid-generator.textSelection" : {
 						"type": "boolean",
-						"default": true,
+						"default": false,
 						"description": "Whether the inserted UUID text should be left in a selected state"
 					},
 					"vscode-uuid-generator.decorationStyle" : {
