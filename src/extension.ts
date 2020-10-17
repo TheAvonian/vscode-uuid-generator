@@ -1,48 +1,101 @@
 // The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
 // this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+	console.log('Extension "vscode-uuid-generator" is now active!');
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vscode-uuid-generator" is now active!');
+    // See https://en.wikipedia.org/wiki/Universally_unique_identifier
+    // See https://www.ietf.org/rfc/rfc4122.txt, section 4.4
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
 	let insertDefault = vscode.commands.registerCommand('vscode-uuid-generator.insertDefault', () => {
-		// Generate the UUID and add insert it at the current edit point
+		// Generate the UUID and insert it at the current edit point
 		let editor = vscode.window.activeTextEditor;
         if (editor) {
-			editor.edit(edit => {
-				if (editor) {
-					editor.selections.forEach(v => edit.replace(v, makeGuid()))
+			editor.edit( edit => {
+				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeGuid() ) ) )
+			} ).then( success => {
+				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.select");
+				if( success && editor && !select ) {
+					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
 				}
 			} );
 		}
 	});
-
-	context.subscriptions.push(insertDefault);
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
+	
+	let insertNil = vscode.commands.registerCommand('vscode-uuid-generator.insertNil', () => {
+		// Generate the UUID and insert it at the current edit point
+		let editor = vscode.window.activeTextEditor;
+        if (editor) {
+			editor.edit( edit => {
+				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeNilGuid() ) ) )
+			} ).then( success => {
+				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.select");
+				if( success && editor && !select ) {
+					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
+				}
+			} );
+		}
+	});
+	
 	let copyDefault = vscode.commands.registerCommand('vscode-uuid-generator.copyDefault', () => {
 		// Generate UUID and add it to the clipboard
-		vscode.env.clipboard.writeText( makeGuid() );
-
+		vscode.env.clipboard.writeText( formatGuid( makeGuid() ) );
+		
 		// Display a message box to the user
 		vscode.window.showInformationMessage('UUID copied to clipboard');
 	});
 
+	context.subscriptions.push(insertDefault);
+	context.subscriptions.push(insertNil);
 	context.subscriptions.push(copyDefault);
 }
 
 export function deactivate() {
 	// Do nothing - called when the extension is deactivated
+}
+
+function formatGuid(uuid: string) {
+	var result: string;
+	var i: string;
+	var j: number;
+	var n: number;
+
+	var decorationStyle = vscode.workspace.getConfiguration().get("vscode-uuid-generator.decorationStyle");
+
+	switch( decorationStyle ) {
+		case "surroundSingleQuotes":
+			result = `'${uuid}'`;
+			break;
+			
+		case "surroundDoubleQuotes":
+			result = `\"${uuid}\"`;
+			break;
+		
+		case "surroundCurlyBraces":
+			result = `{${uuid}}`;
+			break;
+			
+		case "surroundRoundedBraces":
+			result = `(${uuid})`;
+			break;
+			
+		case "surroundSquareBraces":
+			result = `[${uuid}`;
+			break;
+
+		default:
+		case "none":
+			result = uuid;
+			break;
+	}
+
+	return result;
+}
+
+function makeNilGuid() {
+    // See https://www.ietf.org/rfc/rfc4122.txt, section 4.1.7
+	return "00000000-0000-0000-0000-000000000000";
 }
 
 function makeGuid() {
@@ -57,7 +110,6 @@ function makeGuid() {
     //  M shall be 4 to indicate this as a Version 4 (random) UUID
     //  N shall be 10 (binary) to indicate this as a Variant 1
     
-    // See https://en.wikipedia.org/wiki/Universally_unique_identifier
     // See https://www.ietf.org/rfc/rfc4122.txt, section 4.4
 
     // We're going to use a random number generator, but then introduce a time
@@ -103,6 +155,8 @@ function makeGuid() {
 		result = result + i;
 	}
 
-	// Return the result as lowercase
-	return result.toLowerCase();
+	// Return the result as upper/lowercase as configured
+	var uppercase = vscode.workspace.getConfiguration().get("vscode-uuid-generator.uppercase");
+
+	return uppercase ? result.toUpperCase() : result.toLowerCase();
 }

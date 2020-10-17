@@ -27,6 +27,7 @@
 	],
 	"activationEvents": [
 		"onCommand:vscode-uuid-generator.insertDefault",
+		"onCommand:vscode-uuid-generator.insertNil",
 		"onCommand:vscode-uuid-generator.copyDefault"
 	],
 	"main": "./out/extension.js",
@@ -37,8 +38,50 @@
 				"title": "Insert new UUID"
 			},
 			{
+				"command": "vscode-uuid-generator.insertNil",
+				"title": "Insert new nil UUID (with all bits set to 0)"
+			},
+			{
 				"command": "vscode-uuid-generator.copyDefault",
 				"title": "Copy new UUID to clipboard"
+			}
+		],
+		"configuration" : [
+			{
+				"title": "UUID Generator",
+				"properties": {
+					"vscode-uuid-generator.uppercase" : {
+						"type": "boolean",
+						"default": false,
+						"description": "Use uppercase hex digits in UUID. Otherwise digits will be lowercase"
+					},
+					"vscode-uuid-generator.select" : {
+						"type": "boolean",
+						"default": true,
+						"description": "Whether the inserted value should be left in a selected state"
+					},
+					"vscode-uuid-generator.decorationStyle" : {
+						"type": "string",
+						"default": "none",
+						"enum": [ 
+							"none", 
+							"surroundSingleQuotes", 
+							"surroundDoubleQuotes", 
+							"surroundCurlyBraces",
+							"surroundRoundedBraces",
+							"surroundSquareBraces"
+						],
+						"enumDescriptions": [ 
+							"No decoration around the UUID digits", 
+							"Surround UUID with single quotes, e.g. '00000000-0000-0000-0000-000000000000'", 
+							"Surround UUID with double quotes, e.g. \"00000000-0000-0000-0000-000000000000\"", 
+							"Surround UUID with curly braces, e.g. {00000000-0000-0000-0000-000000000000}" ,
+							"Surround UUID with rounded braces, e.g. (00000000-0000-0000-0000-000000000000)" ,
+							"Surround UUID with square braces, e.g. [00000000-0000-0000-0000-000000000000]" 
+						],
+						"description": "Choose whether the generated UUID should be kept in its raw form or wrapped in braces ([{}]), quotes \"''\", or both"
+					}
+				}
 			}
 		]
 	},
