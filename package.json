@@ -6,12 +6,12 @@
 		"uuid",
 		"guid"
 	],
-	"version": "0.1.0",
-	"license": "See license in LICENSE.txt file",
+	"version": "0.1.1",
+	"license": "MIT",
 	"icon": "images/icon.png",
 	"publisher": "motivesoft",
 	"author": {
-		"name":"ianabrown",
+		"name": "ianabrown",
 		"url": "https://github.com/ianabrown"
 	},
 	"repository": {
@@ -46,21 +46,21 @@
 				"title": "Copy new UUID to clipboard"
 			}
 		],
-		"configuration" : [
+		"configuration": [
 			{
 				"title": "UUID Generator",
 				"properties": {
-					"vscode-uuid-generator.uppercaseDigits" : {
+					"vscode-uuid-generator.uppercaseDigits": {
 						"type": "boolean",
 						"default": false,
 						"description": "Use uppercase hex digits in UUID. Otherwise digits will be lowercase"
 					},
-					"vscode-uuid-generator.textSelection" : {
+					"vscode-uuid-generator.textSelection": {
 						"type": "boolean",
 						"default": false,
 						"description": "Whether the inserted UUID text should be left in a selected state"
 					},
-					"vscode-uuid-generator.decorationStyle" : {
+					"vscode-uuid-generator.decorationStyle": {
 						"type": "string",
 						"default": "none",
 						"enum": [ 
@@ -72,14 +72,14 @@
 							"surroundSquareBraces"
 						],
 						"enumDescriptions": [ 
-							"No decoration around the UUID digits", 
+							"No decoration around the UUID, e.g. 00000000-0000-0000-0000-000000000000", 
 							"Surround UUID with single quotes, e.g. '00000000-0000-0000-0000-000000000000'", 
 							"Surround UUID with double quotes, e.g. \"00000000-0000-0000-0000-000000000000\"", 
-							"Surround UUID with curly braces, e.g. {00000000-0000-0000-0000-000000000000}" ,
-							"Surround UUID with rounded braces, e.g. (00000000-0000-0000-0000-000000000000)" ,
+							"Surround UUID with curly braces, e.g. {00000000-0000-0000-0000-000000000000}",
+							"Surround UUID with rounded braces, e.g. (00000000-0000-0000-0000-000000000000)",
 							"Surround UUID with square braces, e.g. [00000000-0000-0000-0000-000000000000]" 
 						],
-						"description": "Choose whether the generated UUID should be kept in its raw form or wrapped in braces ([{}]), quotes \"''\", or both"
+						"description": "Choose whether the generated UUID should be wrapped in braces ([{}]) or quotes \"''\""
 					}
 				}
 			}
