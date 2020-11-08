@@ -2,6 +2,14 @@
 
 All notable changes to the "vscode-uuid-generator" extension will be documented in this file.
 
+## [0.2.1] - 2010-11-08
+Fixed change log and updated readme for the 0.2 release.
+
+## [0.2.0] - 2010-11-08
+### Added
+* Editor context menu now includes the _Insert new UUID_ function. This can be controlled through the configuration of the extension.
+* Keybinding added. Alt+Shift+U will invoke _Insert new UUID_ into the active editor. This can be remapped in the keyboard shortcuts editor.
+
 ## [0.1.1] - 2010-10-18
 Minor corrections to documentation and extension setup. No changes to functionality.
 
@@ -19,6 +27,8 @@ Initial release to go through the process of preparing and uploading
     - Copy UUID to clipboard
     - Insert UUID into current editor
 
+[0.2.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.2.1
+[0.2.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.2.0
 [0.1.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.1.1
 [0.1.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.1.0
 [0.0.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.0.1

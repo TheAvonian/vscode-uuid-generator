@@ -8,7 +8,9 @@ One useful case for this extension is to create UUIDs for configuring new profil
 
 This extension supports creating a new version 4 UUID and then either adding it to the current location in the active editor, or placing it on the clipboard.
 
-The easiest way to run the commands is from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac), typing `UUID` and selecting the desired function.
+The _Insert new UUID_ function is available from the editor context menu, or as a keyboard binding. By default, the keyboard binding is `Alt+Shift+U`.
+
+The other way to run the commands is from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac), typing `UUID` and selecting the desired function.
 * Copy new UUID to the clipboard
 * Insert new UUID
 * Insert a new 'nil' UUID (where all the digits are 0)
@@ -36,6 +38,7 @@ See the [release notes](#release-notes) for more information.
 
 | Name | Description | Default |
 |--|--|--|
+| `vscode-uuid-generator.contextMenu.enabled` | Whether the _Insert new UUID_ function is available from the editor context menu | `true` |
 | `vscode-uuid-generator.uppercaseDigits` | Whether the hex digits are forced to uppercase (`true`) or lowercase (`false`) | `false` |
 | `vscode-uuid-generator.textSelection`   | When the UUID is inserted into the text, this setting controls whether the pasted value is marked as selected (`true`) or whether the selection is cleared (`false`) | `false` |
 | `vscode-uuid-generator.decorationStyle` | Whether the generated UUID should be automatically wrapped with quotes or braces. Possible values:<ul><li>`none`</li><li>`surroundSingleQuotes`</li><li>`surroundDoubleQuotes`</li><li> `surroundCurlyBraces`</li><li>`surroundRoundedBraces`</li><li>`surroundSquareBraces`</ul> | `none` |

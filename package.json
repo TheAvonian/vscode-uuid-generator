@@ -6,7 +6,7 @@
 		"uuid",
 		"guid"
 	],
-	"version": "0.1.1",
+	"version": "0.2.1",
 	"license": "MIT",
 	"icon": "images/icon.png",
 	"publisher": "motivesoft",
@@ -50,6 +50,11 @@
 			{
 				"title": "UUID Generator",
 				"properties": {
+					"vscode-uuid-generator.contextMenu.enabled": {
+						"type": "boolean",
+						"default": true,
+						"description": "Whether to show the Insert new UUID function in the editor context menu"
+					},
 					"vscode-uuid-generator.uppercaseDigits": {
 						"type": "boolean",
 						"default": false,
@@ -82,6 +87,22 @@
 						"description": "Choose whether the generated UUID should be wrapped in braces ([{}]) or quotes \"''\""
 					}
 				}
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "vscode-uuid-generator.insertDefault",
+					"group": "motivesoft",
+					"when": "config.vscode-uuid-generator.contextMenu.enabled"
+				}
+			]
+		},
+		"keybindings": [
+			{
+				"command": "vscode-uuid-generator.insertDefault",
+				"key": "alt+shift+u",
+				"when": "editorTextFocus && !editorReadonly"
 			}
 		]
 	},
