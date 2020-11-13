@@ -15,7 +15,7 @@ The other way to run the commands is from the command palette by pressing (`Ctrl
 * Insert new UUID
 * Insert a new 'nil' UUID (where all the digits are 0)
 
-Through [configuration settings](#settings), it is possible to have the UUID be wrapped with braces or quotes when it is create, for example:
+Through [configuration settings](#settings), it is possible to wrap the created UUID with braces or quotes when it is created, for example:
 * `b26e67ee-0a43-4c3f-8aea-a1179427faf7`
 * `'b26e67ee-0a43-4c3f-8aea-a1179427faf7'`
 * `"b26e67ee-0a43-4c3f-8aea-a1179427faf7"`
