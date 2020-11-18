@@ -6,6 +6,9 @@
 		"uuid",
 		"guid"
 	],
+	"categories": [
+		"Other"
+	],
 	"version": "0.2.1",
 	"license": "MIT",
 	"icon": "images/icon.png",
@@ -14,17 +17,17 @@
 		"name": "ianabrown",
 		"url": "https://github.com/ianabrown"
 	},
+	"homepage": "https://github.com/Motivesoft/vscode-uuid-generator/blob/master/README.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Motivesoft/vscode-uuid-generator.git"
 	},
-	"homepage": "https://github.com/Motivesoft/vscode-uuid-generator/blob/master/README.md",
+	"bugs": {
+		"url": "https://github.com/Motivesoft/vscode-uuid-generator/issues"
+	},
 	"engines": {
 		"vscode": "^1.50.0"
 	},
-	"categories": [
-		"Other"
-	],
 	"activationEvents": [
 		"onCommand:vscode-uuid-generator.insertDefault",
 		"onCommand:vscode-uuid-generator.insertNil",
