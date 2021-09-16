@@ -9,7 +9,7 @@
 	"categories": [
 		"Other"
 	],
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"license": "MIT",
 	"icon": "images/icon.png",
 	"publisher": "motivesoft",
@@ -34,6 +34,12 @@
 		"onCommand:vscode-uuid-generator.copyDefault"
 	],
 	"main": "./out/extension.js",
+	"capabilities": {
+		"virtualWorkspaces": true,
+		"untrustedWorkspaces": {
+			"supported": true
+		}
+	},
 	"contributes": {
 		"commands": [
 			{
