@@ -9,7 +9,7 @@
 	"categories": [
 		"Other"
 	],
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"license": "MIT",
 	"icon": "images/icon.png",
 	"publisher": "motivesoft",
@@ -26,7 +26,7 @@
 		"url": "https://github.com/Motivesoft/vscode-uuid-generator/issues"
 	},
 	"engines": {
-		"vscode": "^1.50.0"
+		"vscode": "^1.65.0"
 	},
 	"activationEvents": [
 		"onCommand:vscode-uuid-generator.insertDefault",
@@ -124,16 +124,16 @@
 		"test": "node ./out/test/runTest.js"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.50.0",
-		"@types/glob": "^7.1.3",
-		"@types/mocha": "^8.0.0",
-		"@types/node": "^14.0.27",
-		"eslint": "^7.9.0",
-		"@typescript-eslint/eslint-plugin": "^4.1.1",
-		"@typescript-eslint/parser": "^4.1.1",
-		"glob": "^7.1.6",
-		"mocha": "^8.1.3",
-		"typescript": "^4.0.2",
-		"vscode-test": "^1.4.0"
+		"@types/vscode": "^1.65.0",
+		"@types/glob": "^7.2.0",
+		"@types/mocha": "^9.1.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.12.1",
+		"@typescript-eslint/parser": "^5.12.1",
+		"eslint": "^8.9.0",
+		"glob": "^7.2.0",
+		"mocha": "^9.2.1",
+		"typescript": "^4.5.5",
+		"@vscode/test-electron": "^2.1.2"
 	}
 }
