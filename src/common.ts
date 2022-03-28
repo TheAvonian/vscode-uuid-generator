@@ -12,7 +12,7 @@ export function configureContext(context: vscode.ExtensionContext) {
 		let editor = vscode.window.activeTextEditor;
         if (editor) {
 			editor.edit( edit => {
-				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeGuid() ) ) )
+				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeGuid() ) ) );
 			} ).then( success => {
 				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.textSelection");
 				if( success && editor && !select ) {
@@ -27,7 +27,7 @@ export function configureContext(context: vscode.ExtensionContext) {
 		let editor = vscode.window.activeTextEditor;
         if (editor) {
 			editor.edit( edit => {
-				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeNilGuid() ) ) )
+				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeNilGuid() ) ) );
 			} ).then( success => {
 				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.textSelection");
 				if( success && editor && !select ) {
