@@ -2,6 +2,9 @@
 
 All notable changes to the "vscode-uuid-generator" extension will be documented in this file.
 
+## [0.4.0] - 2022-03-26
+Updated baseline component dependencies to prepare for VS Code web implementation
+
 ## [0.3.0] - 2021-09-16
 Declared support for virtual workspaces and untrusted workspaces
 Fixed year portion of release dates in this change log.
@@ -31,6 +34,7 @@ Initial release to go through the process of preparing and uploading
     - Copy UUID to clipboard
     - Insert UUID into current editor
 
+[0.4.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.4.0
 [0.3.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.3.0
 [0.2.1]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.2.1
 [0.2.0]: https://github.com/Motivesoft/vscode-uuid-generator/releases/tag/v0.2.0
