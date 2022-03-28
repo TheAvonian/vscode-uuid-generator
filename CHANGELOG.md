@@ -2,8 +2,10 @@
 
 All notable changes to the "vscode-uuid-generator" extension will be documented in this file.
 
-## [0.4.0] - 2022-03-26
+## [0.4.1] - 2022-03-28
 Implemented support for VS Code on the web.
+
+## [0.4.0] - 2022-03-26
 Updated baseline component dependencies
 
 ## [0.3.0] - 2021-09-16
