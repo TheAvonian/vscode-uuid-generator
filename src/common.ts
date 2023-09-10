@@ -120,7 +120,8 @@ function makeNilGuid() {
 }
 
 function makeHandle() {
-	return `h${makeGuid().replace("/-/g", 'g')}`;
+    let h = makeGuid();
+	return `h${h.replace(RegExp("-", 'g'), 'g')}`;
 }
 
 function makeGuid() {
