@@ -1,6 +1,9 @@
 # Change Log
 
-All notable changes to the "vscode-uuid-generator" extension will be documented in this file.
+All notable changes to the "vscode-theavonian-uuid-generator" and "vscode-uuid-generator" extension will be documented in this file.
+
+## [0.4.2] - 2023-09-23
+Implemented support for VS Code on the web.
 
 ## [0.4.1] - 2022-03-28
 Implemented support for VS Code on the web.

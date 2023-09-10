@@ -5,7 +5,7 @@ import { configureContext, deconfigureContext } from './common';
 
 // this method is called when your extension is activated
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Extension "vscode-uuid-generator" is now active!');
+	console.log('Extension "vscode-theavonian-uuid-generator" is now active!');
 
 	configureContext( context );
 }

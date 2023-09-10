@@ -2,19 +2,34 @@ import * as vscode from 'vscode';
 
 export function configureContext(context: vscode.ExtensionContext) {
     // Configure the editor context
-	console.log('Configuring context for "vscode-uuid-generator"');
+	console.log('Configuring context for "vscode-theavonian-uuid-generator"');
 
     // See https://en.wikipedia.org/wiki/Universally_unique_identifier
     // See https://www.ietf.org/rfc/rfc4122.txt, section 4.4
 
-	let insertDefault = vscode.commands.registerCommand('vscode-uuid-generator.insertDefault', () => {
+	let insertDefault = vscode.commands.registerCommand('vscode-theavonian-uuid-generator.insertDefault', () => {
 		// Generate the UUID and insert it at the current edit point
 		let editor = vscode.window.activeTextEditor;
         if (editor) {
 			editor.edit( edit => {
 				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeGuid() ) ) );
 			} ).then( success => {
-				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.textSelection");
+				var select = vscode.workspace.getConfiguration().get("vscode-theavonian-uuid-generator.textSelection");
+				if( success && editor && !select ) {
+					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
+				}
+			} );
+		}
+	});
+
+    let insertHandle = vscode.commands.registerCommand('vscode-theavonian-uuid-generator.insertHandle', () => {
+		// Generate the UUID and insert it at the current edit point
+		let editor = vscode.window.activeTextEditor;
+        if (editor) {
+			editor.edit( edit => {
+				editor?.selections.forEach( v => edit.replace( v, makeHandle() ) );
+			} ).then( success => {
+				var select = vscode.workspace.getConfiguration().get("vscode-theavonian-uuid-generator.textSelection");
 				if( success && editor && !select ) {
 					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
 				}
@@ -22,14 +37,14 @@ export function configureContext(context: vscode.ExtensionContext) {
 		}
 	});
 	
-	let insertNil = vscode.commands.registerCommand('vscode-uuid-generator.insertNil', () => {
+	let insertNil = vscode.commands.registerCommand('vscode-theavonian-uuid-generator.insertNil', () => {
 		// Generate the UUID and insert it at the current edit point
 		let editor = vscode.window.activeTextEditor;
         if (editor) {
 			editor.edit( edit => {
 				editor?.selections.forEach( v => edit.replace( v, formatGuid( makeNilGuid() ) ) );
 			} ).then( success => {
-				var select = vscode.workspace.getConfiguration().get("vscode-uuid-generator.textSelection");
+				var select = vscode.workspace.getConfiguration().get("vscode-theavonian-uuid-generator.textSelection");
 				if( success && editor && !select ) {
 					editor.selection = new vscode.Selection( editor.selection.end, editor.selection.end );
 				}
@@ -37,7 +52,7 @@ export function configureContext(context: vscode.ExtensionContext) {
 		}
 	});
 	
-	let copyDefault = vscode.commands.registerCommand('vscode-uuid-generator.copyDefault', () => {
+	let copyDefault = vscode.commands.registerCommand('vscode-theavonian-uuid-generator.copyDefault', () => {
 		// Generate UUID and add it to the clipboard
 		vscode.env.clipboard.writeText( formatGuid( makeGuid() ) );
 		
@@ -45,9 +60,19 @@ export function configureContext(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('UUID copied to clipboard');
 	});
 
+    let copyHandle = vscode.commands.registerCommand('vscode-theavonian-uuid-generator.copyHandle', () => {
+		// Generate UUID and add it to the clipboard
+		vscode.env.clipboard.writeText( makeHandle() );
+		
+		// Display a message box to the user
+		vscode.window.showInformationMessage('Handle copied to clipboard');
+	});
+
 	context.subscriptions.push(insertDefault);
+	context.subscriptions.push(insertHandle);
 	context.subscriptions.push(insertNil);
 	context.subscriptions.push(copyDefault);
+	context.subscriptions.push(copyHandle);
 }
 
 export function deconfigureContext() {
@@ -56,11 +81,8 @@ export function deconfigureContext() {
 
 function formatGuid(uuid: string) {
 	var result: string;
-	var i: string;
-	var j: number;
-	var n: number;
 
-	var decorationStyle = vscode.workspace.getConfiguration().get("vscode-uuid-generator.decorationStyle");
+	var decorationStyle = vscode.workspace.getConfiguration().get("vscode-theavonian-uuid-generator.decorationStyle");
 
 	switch( decorationStyle ) {
 		case "surroundSingleQuotes":
@@ -95,6 +117,10 @@ function formatGuid(uuid: string) {
 function makeNilGuid() {
     // See https://www.ietf.org/rfc/rfc4122.txt, section 4.1.7
 	return "00000000-0000-0000-0000-000000000000";
+}
+
+function makeHandle() {
+	return `h${makeGuid().replace('-', 'g')}`;
 }
 
 function makeGuid() {
@@ -155,7 +181,7 @@ function makeGuid() {
 	}
 
 	// Return the result as upper/lowercase as configured
-	var uppercase = vscode.workspace.getConfiguration().get("vscode-uuid-generator.uppercaseDigits");
+	var uppercase = vscode.workspace.getConfiguration().get("vscode-theavonian-uuid-generator.uppercaseDigits");
 
 	return uppercase ? result.toUpperCase() : result.toLowerCase();
 }
