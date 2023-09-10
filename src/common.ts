@@ -120,7 +120,7 @@ function makeNilGuid() {
 }
 
 function makeHandle() {
-	return `h${makeGuid().replace('-', 'g')}`;
+	return `h${makeGuid().replace("/-/g", 'g')}`;
 }
 
 function makeGuid() {
